@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpxvh8yqxqxqx"]
+
+[ext_resource type="Script" path="res://ExpeditionMap.gd" id="1_expedition"]
+[ext_resource type="Script" path="res://MapGenerator.gd" id="2_generator"]
+[ext_resource type="PackedScene" uid="uid://cpxvh8yqxqxqx" path="res://Party.tscn" id="3_party"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(1200, 800)
+
+[node name="ExpeditionMap" type="Node2D"]
+script = ExtResource("1_expedition")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1200.0
+offset_bottom = 800.0
+color = Color(0.2, 0.3, 0.2, 1)
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("2_generator")
+
+[node name="Party" parent="." instance=ExtResource("3_party")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = true
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+zoom = Vector2(0.8, 0.8)
+
+[node name="PathLine" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.7, 0.7, 0.7, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="EventLog" type="Label" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -200.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Система карты готова к работе"
+vertical_alignment = 2
+autowrap_mode = 3 

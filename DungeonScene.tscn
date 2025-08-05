@@ -1,0 +1,164 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8yay001a2b3c"]
+
+[ext_resource type="Script" path="res://DungeonScene.gd" id="1_dungeon_scene"]
+
+[node name="DungeonScene" type="Node2D"]
+script = ExtResource("1_dungeon_scene")
+
+[node name="DungeonMap" type="Node2D" parent="."]
+
+[node name="DungeonUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TopBar" type="Panel" parent="DungeonUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+color = Color(0.1, 0.1, 0.2, 0.9)
+
+[node name="LevelLabel" type="Label" parent="DungeonUI/TopBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+text = "Подземелье Ур. 15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="DungeonUI/TopBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -15.0
+offset_right = 90.0
+offset_bottom = 15.0
+text = "Назад"
+
+[node name="PlayerStats" type="Label" parent="DungeonUI/TopBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -15.0
+offset_right = -10.0
+offset_bottom = 15.0
+text = "HP: 100/100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DungeonGrid" type="Node2D" parent="."]
+position = Vector2(50, 80)
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(100, 100)
+
+[node name="PlayerSprite" type="ColorRect" parent="Player"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.2, 0.6, 1.0, 1)
+
+[node name="PlayerBorder" type="ColorRect" parent="Player"]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.1, 0.3, 0.8, 1)
+
+[node name="Legend" type="Control" parent="DungeonUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -200.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="LegendPanel" type="Panel" parent="DungeonUI/Legend"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.2, 0.8)
+
+[node name="LegendTitle" type="Label" parent="DungeonUI/Legend"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 25.0
+text = "Легенда"
+horizontal_alignment = 1
+
+[node name="LegendContent" type="VBoxContainer" parent="DungeonUI/Legend"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 25.0
+
+[node name="PlayerLegend" type="HBoxContainer" parent="DungeonUI/Legend/LegendContent"]
+layout_mode = 2
+
+[node name="PlayerColor" type="ColorRect" parent="DungeonUI/Legend/LegendContent/PlayerLegend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(0.2, 0.6, 1.0, 1)
+
+[node name="PlayerText" type="Label" parent="DungeonUI/Legend/LegendContent/PlayerLegend"]
+layout_mode = 2
+text = "Игрок"
+
+[node name="EnemyLegend" type="HBoxContainer" parent="DungeonUI/Legend/LegendContent"]
+layout_mode = 2
+
+[node name="EnemyColor" type="ColorRect" parent="DungeonUI/Legend/LegendContent/EnemyLegend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(0.8, 0.2, 0.2, 1)
+
+[node name="EnemyText" type="Label" parent="DungeonUI/Legend/LegendContent/EnemyLegend"]
+layout_mode = 2
+text = "Враг"
+
+[node name="TreasureLegend" type="HBoxContainer" parent="DungeonUI/Legend/LegendContent"]
+layout_mode = 2
+
+[node name="TreasureColor" type="ColorRect" parent="DungeonUI/Legend/LegendContent/TreasureLegend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1.0, 0.8, 0.0, 1)
+
+[node name="TreasureText" type="Label" parent="DungeonUI/Legend/LegendContent/TreasureLegend"]
+layout_mode = 2
+text = "Сокровище"
+
+[node name="ExitLegend" type="HBoxContainer" parent="DungeonUI/Legend/LegendContent"]
+layout_mode = 2
+
+[node name="ExitColor" type="ColorRect" parent="DungeonUI/Legend/LegendContent/ExitLegend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(0.2, 0.8, 0.2, 1)
+
+[node name="ExitText" type="Label" parent="DungeonUI/Legend/LegendContent/ExitLegend"]
+layout_mode = 2
+text = "Выход" 

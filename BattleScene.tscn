@@ -1,0 +1,259 @@
+[gd_scene load_steps=4 format=3 uid="uid://battle_scene_new"]
+
+[ext_resource type="Script" path="res://BattleScene.gd" id="1_battle"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1"]
+font_size = 14
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2"]
+font_size = 16
+font_color = Color(1, 1, 0, 1)
+
+[node name="BattleScene" type="CanvasLayer"]
+script = ExtResource("1_battle")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="BattleZone" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="BattleZone"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "⚔️ БОЙ ⚔️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeroesContainer" type="VBoxContainer" parent="BattleZone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -100.0
+offset_right = -150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hero1" type="VBoxContainer" parent="BattleZone/HeroesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeroSprite1" type="ColorRect" parent="BattleZone/HeroesContainer/Hero1"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+color = Color(0, 0, 1, 1)
+
+[node name="HeroHPBar1" type="ProgressBar" parent="BattleZone/HeroesContainer/Hero1"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+value = 100.0
+show_percentage = false
+
+[node name="HeroHP1" type="Label" parent="BattleZone/HeroesContainer/Hero1"]
+layout_mode = 2
+text = "HP: 20/20"
+horizontal_alignment = 1
+
+[node name="Hero2" type="VBoxContainer" parent="BattleZone/HeroesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeroSprite2" type="ColorRect" parent="BattleZone/HeroesContainer/Hero2"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+color = Color(1, 0, 0, 1)
+
+[node name="HeroHPBar2" type="ProgressBar" parent="BattleZone/HeroesContainer/Hero2"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+value = 100.0
+show_percentage = false
+
+[node name="HeroHP2" type="Label" parent="BattleZone/HeroesContainer/Hero2"]
+layout_mode = 2
+text = "HP: 20/20"
+horizontal_alignment = 1
+
+[node name="Hero3" type="VBoxContainer" parent="BattleZone/HeroesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeroSprite3" type="ColorRect" parent="BattleZone/HeroesContainer/Hero3"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+color = Color(0, 1, 0, 1)
+
+[node name="HeroHPBar3" type="ProgressBar" parent="BattleZone/HeroesContainer/Hero3"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+value = 100.0
+show_percentage = false
+
+[node name="HeroHP3" type="Label" parent="BattleZone/HeroesContainer/Hero3"]
+layout_mode = 2
+text = "HP: 20/20"
+horizontal_alignment = 1
+
+[node name="VS" type="Label" parent="BattleZone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "⚔️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemiesContainer" type="VBoxContainer" parent="BattleZone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = -100.0
+offset_right = 350.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemy1" type="VBoxContainer" parent="BattleZone/EnemiesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemySprite1" type="ColorRect" parent="BattleZone/EnemiesContainer/Enemy1"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+color = Color(0.5, 0, 0.5, 1)
+
+[node name="EnemyHPBar1" type="ProgressBar" parent="BattleZone/EnemiesContainer/Enemy1"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+value = 100.0
+show_percentage = false
+
+[node name="EnemyHP1" type="Label" parent="BattleZone/EnemiesContainer/Enemy1"]
+layout_mode = 2
+text = "HP: 15/15"
+horizontal_alignment = 1
+
+[node name="Enemy2" type="VBoxContainer" parent="BattleZone/EnemiesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemySprite2" type="ColorRect" parent="BattleZone/EnemiesContainer/Enemy2"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+color = Color(0.8, 0.4, 0, 1)
+
+[node name="EnemyHPBar2" type="ProgressBar" parent="BattleZone/EnemiesContainer/Enemy2"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+value = 100.0
+show_percentage = false
+
+[node name="EnemyHP2" type="Label" parent="BattleZone/EnemiesContainer/Enemy2"]
+layout_mode = 2
+text = "HP: 12/12"
+horizontal_alignment = 1
+
+[node name="Enemy3" type="VBoxContainer" parent="BattleZone/EnemiesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemySprite3" type="ColorRect" parent="BattleZone/EnemiesContainer/Enemy3"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+color = Color(0.2, 0.8, 0.2, 1)
+
+[node name="EnemyHPBar3" type="ProgressBar" parent="BattleZone/EnemiesContainer/Enemy3"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 15)
+value = 100.0
+show_percentage = false
+
+[node name="EnemyHP3" type="Label" parent="BattleZone/EnemiesContainer/Enemy3"]
+layout_mode = 2
+text = "HP: 18/18"
+horizontal_alignment = 1
+
+[node name="BattleLogPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -150.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BattleLog" type="RichTextLabel" parent="BattleLogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Бой начинается!"
+scroll_following = true
+
+[node name="ResultLabel" type="Label" parent="BattleZone"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ПОБЕДА!"
+label_settings = SubResource("LabelSettings_2")
+horizontal_alignment = 1
+vertical_alignment = 1 

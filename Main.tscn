@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://uj0v62iej2y6"]
+
+[ext_resource type="PackedScene" uid="uid://d2q6vj3c5d3xq" path="res://MainMap.tscn" id="1_main_map"]
+[ext_resource type="PackedScene" uid="uid://b8x70a02a1b3c" path="res://CityUI.tscn" id="2_city_ui"]
+[ext_resource type="Script" uid="uid://68f3lumqti76" path="res://DungeonManager.gd" id="3_dungeon_manager"]
+
+[node name="Main" type="Node"]
+
+[node name="MainMap" parent="." instance=ExtResource("1_main_map")]
+
+[node name="CityUI" parent="." instance=ExtResource("2_city_ui")]
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DungeonManager" type="Node" parent="."]
+script = ExtResource("3_dungeon_manager")

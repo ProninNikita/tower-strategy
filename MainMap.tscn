@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2q6vj3c5d3xq"]
+
+[ext_resource type="Script" path="res://MainMap.gd" id="1_main_map"]
+[ext_resource type="Script" path="res://MapGenerator.gd" id="2_map_generator"]
+[ext_resource type="PackedScene" uid="uid://c8q6vj3c5d3xq" path="res://Party.tscn" id="3_party"]
+
+[node name="MainMap" type="Node2D"]
+script = ExtResource("1_main_map")
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("2_map_generator")
+
+[node name="Party" parent="." instance=ExtResource("3_party")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="PathLine" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(0.7, 0.7, 0.7, 0.5)

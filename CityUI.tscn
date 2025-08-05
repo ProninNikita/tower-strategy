@@ -1,0 +1,221 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8x70a02a1b3c"]
+
+[ext_resource type="Script" path="res://CityUI.gd" id="1_city_ui"]
+[ext_resource type="Script" path="res://CityUIButton.gd" id="2_city_button"]
+
+[node name="CityUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_city_ui")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.2, 0.3, 0.5, 1)
+
+[node name="CityBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.4, 0.6, 0.8, 1)
+
+[node name="BottomBar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+color = Color(0.1, 0.1, 0.2, 0.9)
+
+[node name="HeroPortalButton" type="Button" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -40.0
+offset_right = -50.0
+offset_bottom = 40.0
+script = ExtResource("2_city_button")
+button_type = "portal"
+
+[node name="PortalIcon" type="ColorRect" parent="BottomBar/HeroPortalButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.8, 0.4, 1.0, 1)
+
+[node name="PortalLabel" type="Label" parent="BottomBar/HeroPortalButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 5.0
+offset_right = 30.0
+offset_bottom = 25.0
+text = "Портал"
+horizontal_alignment = 1
+
+[node name="SummonCount" type="Label" parent="BottomBar/HeroPortalButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 25.0
+offset_right = 20.0
+offset_bottom = 45.0
+text = "3x"
+horizontal_alignment = 1
+
+[node name="DungeonTowerButton" type="Button" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -50.0
+offset_right = 40.0
+offset_bottom = 50.0
+script = ExtResource("2_city_button")
+button_type = "tower"
+
+[node name="TowerIcon" type="ColorRect" parent="BottomBar/DungeonTowerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1.0, 0.6, 0.2, 1)
+
+[node name="TowerLabel" type="Label" parent="BottomBar/DungeonTowerButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 5.0
+offset_right = 30.0
+offset_bottom = 25.0
+text = "Башня"
+horizontal_alignment = 1
+
+[node name="DungeonLevel" type="Label" parent="BottomBar/DungeonTowerButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 25.0
+offset_right = 30.0
+offset_bottom = 45.0
+text = "Ур. 15"
+horizontal_alignment = 1
+
+[node name="HeroMansionButton" type="Button" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -40.0
+offset_right = 150.0
+offset_bottom = 40.0
+script = ExtResource("2_city_button")
+button_type = "mansion"
+
+[node name="MansionIcon" type="ColorRect" parent="BottomBar/HeroMansionButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.2, 0.8, 0.4, 1)
+
+[node name="MansionLabel" type="Label" parent="BottomBar/HeroMansionButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 25.0
+text = "Особняк"
+horizontal_alignment = 1
+
+[node name="HeroCount" type="Label" parent="BottomBar/HeroMansionButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 25.0
+offset_right = 20.0
+offset_bottom = 45.0
+text = "12"
+horizontal_alignment = 1
+
+[node name="TopBar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+color = Color(0.1, 0.1, 0.2, 0.9)
+
+[node name="GameTitle" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -15.0
+offset_right = 100.0
+offset_bottom = 15.0
+text = "Tower Strategy"
+horizontal_alignment = 1
+vertical_alignment = 1 
