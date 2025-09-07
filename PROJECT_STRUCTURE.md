@@ -54,6 +54,8 @@ towerstrategy/
 │   └── icon.svg.import
 │
 ├── 📁 docs/                     # Документация
+│   ├── README_EN.md             # English documentation
+│   ├── README_UA.md             # Українська документація
 │   ├── CityUI_Specifications.md
 │   ├── CityUI_Wireframe.txt
 │   ├── VERSION.md
@@ -62,9 +64,7 @@ towerstrategy/
 │   ├── UPLOAD_TO_GITHUB.md
 │   └── TowerStrategy_v1.0.0.zip
 │
-├── README.md                    # Основная документация
-├── README_EN.md                 # English documentation
-├── README_UA.md                 # Українська документація
+├── README.md                    # Основная документация (только ссылки)
 ├── project.godot                # Конфигурация проекта Godot
 ├── LICENSE                      # Лицензия MIT
 ├── .gitignore                   # Git игнорирование
