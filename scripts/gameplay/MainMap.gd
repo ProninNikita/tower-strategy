@@ -101,7 +101,7 @@ func create_point_node(point_data) -> void:
 	print("MainMap: Создаем узел для точки ", point_data.id, " на позиции ", point_data.position)
 	
 	# Загружаем сцену точки
-	var point_scene = preload("res://MapPoint.tscn")
+	var point_scene = preload("res://scenes/MapPoint.tscn")
 	var point_node = point_scene.instantiate()
 	
 	# Настраиваем позицию и свойства

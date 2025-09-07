@@ -1,6 +1,6 @@
 extends Node2D
 
-const PointMarker = preload("res://PointMarker.tscn")
+const PointMarker = preload("res://scenes/PointMarker.tscn")
 
 @export var move_speed: float = 100.0
 @export var hero_color: Color = Color.BLUE

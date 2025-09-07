@@ -136,7 +136,7 @@ func create_map_point_node(point_data) -> Node:
 	add_child(area2d)
 	
 	# Загружаем и устанавливаем скрипт
-	var script = load("res://MapPoint.gd")
+	var script = load("res://scripts/gameplay/MapPoint.gd")
 	if script:
 		area2d.set_script(script)
 		# Устанавливаем свойства

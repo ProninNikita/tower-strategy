@@ -98,7 +98,7 @@ func handle_empty():
 
 func create_battle_scene():
 	"""Создает сцену боя"""
-	var battle_scene_scene = preload("res://BattleScene.tscn")
+	var battle_scene_scene = preload("res://scenes/BattleScene.tscn")
 	battle_scene = battle_scene_scene.instantiate()
 	
 	# Добавляем сцену боя в главную сцену
