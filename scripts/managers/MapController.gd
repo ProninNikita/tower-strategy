@@ -30,7 +30,7 @@ func _ready():
 	team_manager = get_node("../TeamManager")
 	
 	# Создаем генератор карты
-	var MapGeneratorScript = load("res://MapGenerator.gd")
+	var MapGeneratorScript = load("res://scripts/gameplay/MapGenerator.gd")
 	if not MapGeneratorScript:
 		print("ОШИБКА: Не удалось загрузить MapGenerator.gd!")
 		return

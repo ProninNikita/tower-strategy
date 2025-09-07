@@ -23,7 +23,7 @@ func generate_dungeon(level: int) -> Node:
 	print("DungeonManager: Генерируем подземелье уровня ", level)
 	
 	# Создаем новую сцену подземелья
-	var new_dungeon_scene = load("res://DungeonScene.tscn").instantiate()
+	var new_dungeon_scene = load("res://scenes/DungeonScene.tscn").instantiate()
 	new_dungeon_scene.dungeon_level = level
 	new_dungeon_scene.dungeon_settings = dungeon_settings
 	

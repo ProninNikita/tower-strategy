@@ -236,7 +236,7 @@ func start_combat(_enemy_position: Vector2):
 	print("DungeonScene: Начинается бой!")
 	
 	# Создаем и показываем сцену боя
-	var battle_scene = load("res://BattleScene.tscn").instantiate()
+	var battle_scene = load("res://scenes/BattleScene.tscn").instantiate()
 	get_tree().current_scene.add_child(battle_scene)
 	
 	# Подключаем сигнал завершения боя

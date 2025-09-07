@@ -4,7 +4,7 @@ extends Area2D
 signal point_clicked(point)
 
 # Подключаем константы
-const Constants = preload("res://map_constants.gd")
+const Constants = preload("res://scripts/data/map_constants.gd")
 
 # Свойства точки
 var event_type: int = Constants.EventType.EMPTY

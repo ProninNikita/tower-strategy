@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8x70a02a1b3c"]
 
-[ext_resource type="Script" path="res://CityUI.gd" id="1_city_ui"]
-[ext_resource type="Script" path="res://CityUIButton.gd" id="2_city_button"]
+[ext_resource type="Script" path="res://scripts/ui/CityUI.gd" id="1_city_ui"]
+[ext_resource type="Script" path="res://scripts/ui/CityUIButton.gd" id="2_city_button"]
 
 [node name="CityUI" type="Control"]
 layout_mode = 3

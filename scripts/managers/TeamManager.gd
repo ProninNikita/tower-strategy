@@ -24,7 +24,7 @@ func create_team():
 	var hero_colors = [Color.BLUE, Color.RED, Color.GREEN]
 	
 	for i in range(team_size):
-		var hero_scene = preload("res://Hero.tscn")
+		var hero_scene = preload("res://scenes/Hero.tscn")
 		var hero = hero_scene.instantiate()
 		
 		# Настраиваем героя

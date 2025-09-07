@@ -5,11 +5,11 @@ const SPACING_Y = -150  # Расстояние между точками по в
 const SPACING_X = 200   # Расстояние между ветками по горизонтали
 
 # Подключаем необходимые классы
-const MapPointDataClass = preload("res://map_point_data.gd")
-const Constants = preload("res://map_constants.gd")
+const MapPointDataClass = preload("res://scripts/data/map_point_data.gd")
+const Constants = preload("res://scripts/data/map_constants.gd")
 
 # Переменные для управления картой
-var points: Array[MapPointData] = []  # Все точки карты
+var points: Array = []  # Все точки карты
 var next_point_id: int = 0            # Следующий ID точки
 var current_point_id: int = -1        # Текущая точка (где находится отряд)
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 	# Инициализация генератора случайных чисел
 	randomize()
 
-func generate_initial_segment() -> Array[MapPointData]:
+func generate_initial_segment() -> Array:
 	"""Генерирует начальный сегмент карты с Safe Zone и развилками"""
 	points.clear()
 	next_point_id = 0
@@ -41,7 +41,7 @@ func generate_initial_segment() -> Array[MapPointData]:
 	
 	return points
 
-func generate_starting_segment(from_point: MapPointData) -> void:
+func generate_starting_segment(from_point) -> void:
 	"""Генерирует стартовый сегмент с развилками"""
 	print("MapGenerator: Генерируем стартовый сегмент от Safe Zone")
 	
@@ -76,7 +76,7 @@ func generate_starting_segment(from_point: MapPointData) -> void:
 	print("MapGenerator: Создаем ", branch_count, " развилок от точки ", current_point.id)
 	generate_starting_branches(current_point, branch_count)
 
-func generate_starting_branches(from_point: MapPointData, count: int) -> void:
+func generate_starting_branches(from_point, count: int) -> void:
 	"""Генерирует развилки для стартового сегмента"""
 	for i in range(count):
 		# Вычисляем позицию ветки (смещение по горизонтали)
@@ -100,7 +100,7 @@ func generate_starting_branches(from_point: MapPointData, count: int) -> void:
 		
 		next_point_id += 1
 
-func generate_segment(from_point: MapPointData, _length: int = 1, _branches: int = 1) -> void:
+func generate_segment(from_point, _length: int = 1, _branches: int = 1) -> void:
 	"""Генерирует новый сегмент карты от указанной точки"""
 	print("MapGenerator: Генерируем новый сегмент от точки ", from_point.id)
 	
@@ -132,7 +132,7 @@ func generate_segment(from_point: MapPointData, _length: int = 1, _branches: int
 	
 	print("MapGenerator: Сегмент сгенерирован. Всего точек: ", points.size())
 
-func generate_branches(from_point: MapPointData, _count: int) -> void:
+func generate_branches(from_point, _count: int) -> void:
 	"""Генерирует ответвления от указанной точки"""
 	# Создаем только одну ветку по центру
 	var branch_pos = from_point.position + Vector2(0, SPACING_Y)
@@ -168,7 +168,7 @@ func get_random_event_type() -> int:
 	
 	return Constants.EventType.EMPTY
 
-func get_point_by_id(id: int) -> MapPointData:
+func get_point_by_id(id: int):
 	"""Возвращает точку по ID"""
 	for point in points:
 		if point.id == id:
@@ -193,9 +193,9 @@ func is_position_occupied(pos: Vector2) -> bool:
 			return true
 	return false
 
-func connect_to_nearest_points(new_point: MapPointData) -> void:
+func connect_to_nearest_points(new_point) -> void:
 	"""Новая точка ищет ближайшие к себе точки и связывается с ними"""
-	var nearest_points: Array[MapPointData] = []
+	var nearest_points: Array = []
 	var max_connections = 2  # Максимальное количество связей для новой точки
 	
 	# Ищем все точки, которые находятся в пределах разумного расстояния

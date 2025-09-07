@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpxvh8yqxqxqx"]
 
-[ext_resource type="Script" path="res://ExpeditionMap.gd" id="1_expedition"]
-[ext_resource type="Script" path="res://MapGenerator.gd" id="2_generator"]
-[ext_resource type="PackedScene" uid="uid://cpxvh8yqxqxqx" path="res://Party.tscn" id="3_party"]
+[ext_resource type="Script" path="res://scripts/gameplay/ExpeditionMap.gd" id="1_expedition"]
+[ext_resource type="Script" path="res://scripts/gameplay/MapGenerator.gd" id="2_generator"]
+[ext_resource type="PackedScene" uid="uid://cpxvh8yqxqxqx" path="res://scenes/Party.tscn" id="3_party"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(1200, 800)
