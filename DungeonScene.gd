@@ -8,6 +8,7 @@ var dungeon_settings: Dictionary = {}
 var dungeon_map: Array = []
 var player_position: Vector2 = Vector2(1, 1)
 var exit_position: Vector2 = Vector2(18, 13)
+var last_enemy_position: Vector2 = Vector2.ZERO  # Позиция последнего врага
 
 # Типы клеток
 enum CellType {
@@ -157,8 +158,8 @@ func visualize_dungeon():
 	
 	# Размещаем игрока
 	var player = $Player
-	player.position = Vector2(player_position.x * cell_size + cell_size/2, 
-							 player_position.y * cell_size + cell_size/2)
+	player.position = Vector2(player_position.x * cell_size + cell_size * 0.5, 
+							 player_position.y * cell_size + cell_size * 0.5)
 
 func update_ui():
 	var level_label = $DungeonUI/TopBar/LevelLabel
@@ -203,12 +204,21 @@ func move_player(direction: Vector2):
 		CellType.ENEMY:
 			# Бой с врагом
 			print("DungeonScene: Бой с врагом!")
+			last_enemy_position = new_position
 			start_combat(new_position)
 			return
 		CellType.TREASURE:
 			# Подбираем сокровище
 			print("DungeonScene: Найдено сокровище!")
 			dungeon_map[new_position.y][new_position.x] = CellType.FLOOR
+			# Перемещаем игрока на клетку сокровища
+			player_position = new_position
+			var player = $Player
+			var cell_size = 32
+			player.position = Vector2(player_position.x * cell_size + cell_size * 0.5, 
+									 player_position.y * cell_size + cell_size * 0.5)
+			visualize_dungeon()
+			return
 		CellType.EXIT:
 			# Выход из подземелья
 			print("DungeonScene: Выход найден! Подземелье пройдено!")
@@ -219,15 +229,41 @@ func move_player(direction: Vector2):
 	player_position = new_position
 	var player = $Player
 	var cell_size = 32
-	player.position = Vector2(player_position.x * cell_size + cell_size/2, 
-							 player_position.y * cell_size + cell_size/2)
+	player.position = Vector2(player_position.x * cell_size + cell_size * 0.5, 
+							 player_position.y * cell_size + cell_size * 0.5)
 
-func start_combat(enemy_position: Vector2):
+func start_combat(_enemy_position: Vector2):
 	print("DungeonScene: Начинается бой!")
-	# Здесь будет логика боя
-	# Пока просто удаляем врага
-	dungeon_map[enemy_position.y][enemy_position.x] = CellType.FLOOR
-	visualize_dungeon()
+	
+	# Создаем и показываем сцену боя
+	var battle_scene = load("res://BattleScene.tscn").instantiate()
+	get_tree().current_scene.add_child(battle_scene)
+	
+	# Подключаем сигнал завершения боя
+	battle_scene.battle_finished.connect(_on_battle_finished)
+	
+	# Начинаем бой
+	battle_scene.start_battle()
+	
+	# Скрываем подземелье во время боя
+	hide()
+
+func _on_battle_finished(victory: bool):
+	print("DungeonScene: Бой завершен, победа: ", victory)
+	
+	# Показываем подземелье снова
+	show()
+	
+	if victory:
+		# Удаляем врага с карты
+		dungeon_map[last_enemy_position.y][last_enemy_position.x] = CellType.FLOOR
+		
+		visualize_dungeon()
+		print("DungeonScene: Враг побежден!")
+	else:
+		# Игрок проиграл
+		print("DungeonScene: Игрок проиграл!")
+		player_died.emit()
 
 func complete_dungeon():
 	var rewards = {

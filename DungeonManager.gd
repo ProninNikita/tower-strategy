@@ -23,24 +23,24 @@ func generate_dungeon(level: int) -> Node:
 	print("DungeonManager: Генерируем подземелье уровня ", level)
 	
 	# Создаем новую сцену подземелья
-	var dungeon_scene = load("res://DungeonScene.tscn").instantiate()
-	dungeon_scene.dungeon_level = level
-	dungeon_scene.dungeon_settings = dungeon_settings
+	var new_dungeon_scene = load("res://DungeonScene.tscn").instantiate()
+	new_dungeon_scene.dungeon_level = level
+	new_dungeon_scene.dungeon_settings = dungeon_settings
 	
 	# Генерируем карту подземелья
-	dungeon_scene.generate_dungeon_map()
+	new_dungeon_scene.generate_dungeon_map()
 	
 	# Подключаем сигналы
-	dungeon_scene.dungeon_completed.connect(_on_dungeon_completed)
-	dungeon_scene.player_died.connect(_on_player_died)
+	new_dungeon_scene.dungeon_completed.connect(_on_dungeon_completed)
+	new_dungeon_scene.player_died.connect(_on_player_died)
 	
-	self.dungeon_scene = dungeon_scene
+	self.dungeon_scene = new_dungeon_scene
 	is_dungeon_active = true
 	
 	print("DungeonManager: Подземелье сгенерировано успешно")
-	dungeon_generated.emit(dungeon_scene)
+	dungeon_generated.emit(new_dungeon_scene)
 	
-	return dungeon_scene
+	return new_dungeon_scene
 
 func start_dungeon_run(level: int) -> bool:
 	if is_dungeon_active:

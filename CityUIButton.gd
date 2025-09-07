@@ -3,7 +3,7 @@ extends Button
 @export var button_type: String = ""
 
 var original_scale: Vector2
-var tween: Tween
+var _tween: Tween
 
 func _ready():
 	original_scale = scale
@@ -34,17 +34,17 @@ func _on_button_pressed():
 			_handle_mansion_press()
 
 func animate_press():
-	if tween:
-		tween.kill()
+	if _tween:
+		_tween.kill()
 	
-	tween = create_tween()
-	tween.set_parallel(true)
+	_tween = create_tween()
+	_tween.set_parallel(true)
 	
 	# Уменьшение размера при нажатии
-	tween.tween_property(self, "scale", original_scale * 0.9, 0.1)
+	_tween.tween_property(self, "scale", original_scale * 0.9, 0.1)
 	
 	# Возврат к исходному размеру
-	tween.tween_property(self, "scale", original_scale, 0.1).set_delay(0.1)
+	_tween.tween_property(self, "scale", original_scale, 0.1).set_delay(0.1)
 	
 	# Добавляем легкое свечение
 	var icon = get_node_or_null("PortalIcon")
@@ -55,8 +55,8 @@ func animate_press():
 	
 	if icon:
 		var original_color = icon.color
-		tween.tween_property(icon, "color", original_color.lightened(0.3), 0.1)
-		tween.tween_property(icon, "color", original_color, 0.1).set_delay(0.1)
+		_tween.tween_property(icon, "color", original_color.lightened(0.3), 0.1)
+		_tween.tween_property(icon, "color", original_color, 0.1).set_delay(0.1)
 
 func _handle_tower_press():
 	print("Башня подземелий нажата!")
