@@ -2,6 +2,11 @@
 
 A mobile strategy game with roguelike elements, created in Godot 4.
 
+## 🌐 Languages
+
+- 🇺🇦 [Українська](README_UA.md) - Повна документація українською мовою
+- 🇬🇧 [English](README_EN.md) - Complete documentation in English
+
 ## 🎮 Description
 
 Tower Strategy is a game where the player controls a party of heroes, explores dungeons, collects treasures, and develops their city. The game is optimized for mobile devices with a 9:16 aspect ratio.
