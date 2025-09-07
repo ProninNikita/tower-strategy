@@ -4,8 +4,8 @@ A mobile strategy game with roguelike elements, created in Godot 4.
 
 ## 🌐 Languages
 
-- 🇺🇦 [Українська](README_UA.md) - Повна документація українською мовою
-- 🇬🇧 [English](README_EN.md) - Complete documentation in English
+- 🇺🇦 [Українська](../README_UA.md) - Повна документація українською мовою
+- 🇬🇧 [English](../README_EN.md) - Complete documentation in English
 
 ## 🎮 Description
 
