@@ -4,7 +4,7 @@
 
 ## 🌐 Мови / Languages
 
-- 🇺🇦 [Українська](README_UK.md) - Повна документація українською мовою
+- 🇺🇦 [Українська](README_UA.md) - Повна документація українською мовою
 - 🇬🇧 [English](README_EN.md) - Complete documentation in English
 
 ## 🎮 Опис
